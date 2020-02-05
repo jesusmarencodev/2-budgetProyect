@@ -17,15 +17,23 @@ function App() {
   //useEffect that updates the remaining
   useEffect(()=>{
     if(createexpediture){
+      //add a new budget
       setExpenditures([
         ...expenditures,
         expenditure
       ])
+      //remaining budget
+      const remainingBudget = remaining - expenditure.quantity;
+      setRemaining(remainingBudget);
+
+
+      //reset false
+      setCreateexpediture(false);
     }
 
-  },[expenditure]);
+  },[expenditure, setExpenditure, expenditures, remaining, createexpediture]);
 
-    console.log(expenditures)
+
 
 
 	return (
